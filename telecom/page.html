@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimensionnement du réseau de télécommunications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        label {
+            margin-top: 10px;
+            color: #555;
+        }
+        input[type="number"], input[type="submit"] {
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dimensionnement du réseau de télécommunications</h1>
+        <form action="http://localhost/telecom/result.php" method="post">
+            <label for="total_subscribers">Nombre total d'abonnés :</label>
+            <input type="number" id="total_subscribers" name="total_subscribers" required>
+            
+            <label for="penetration_rate">Taux de pénétration (%) :</label>
+            <input type="number" id="penetration_rate" name="penetration_rate" min="0" max="100" step="0.01" required>
+            
+            <label for="traffic_per_subscriber">Trafic par abonné à l'heure de pointe (Erlangs) :</label>
+            <input type="number" id="traffic_per_subscriber" name="traffic_per_subscriber" step="any" required>
+            
+            <label for="total_frequencies">Nombre total de fréquences allouées à l'opérateur :</label>
+            <input type="number" id="total_frequencies" name="total_frequencies" required>
+            
+            <label for="reutilization_pattern">Taille du motif de réutilisation :</label>
+            <input type="number" id="reutilization_pattern" name="reutilization_pattern" required>
+            
+            <label for="taux_blocage">Taux de blocage (%) :</label>
+            <input type="number" id="taux_blocage" name="taux_blocage" step="0.01" required>
+            
+            <label for="it_reserve">IT réserve :</label>
+            <input type="number" id="it_reserve" name="it_reserve" required>
+            
+            <input type="submit" value="Calculer">
+        </form>
+    </div>
+</body>
+</html>
